@@ -45,3 +45,7 @@ The system demonstrates how patient enrolment, appointment scheduling, attendanc
 1. Clone or download this repository:
    ```bash
    git clone https://github.com/ModedShrino/PMS-Pakenham.git
+
+
+## Updates
+- Added branch workflow test section
