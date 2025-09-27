@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pakenham Hospital — Patient Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="bg-split"></div>
+
+  <main class="shell">
+    <section class="panel shadow-xl">
+      <!-- LEFT: LOGIN / REGISTER -->
+      <div class="panel-left">
+        <div class="brand-lockup">
+          <h1 class="brand-title">PAKENHAM HOSPITAL</h1>
+          <p class="brand-sub">Patient Management System</p>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="patientLogin">Patient Login</button>
+          <button class="tab" data-tab="patientRegister">Register</button>
+          <button class="tab" data-tab="doctor">Doctor</button>
+          <button class="tab" data-tab="admin">Admin</button>
+        </div>
+
+        <!-- Patient Login -->
+        <div class="tab-content active" id="patientLogin">
+          <label>Email</label>
+          <input id="patientEmail" type="email" placeholder="e.g., first.patient@example.com"/>
+          <label>Password</label>
+          <input id="patientPass" type="password" placeholder="Enter password"/>
+          <button id="patientLoginBtn" class="btn primary wide">Login</button>
+          
+        </div>
+
+        <!-- Patient Register -->
+        <div class="tab-content" id="patientRegister">
+          <div class="grid-2 g2-tight">
+            <div>
+              <label>Full Name</label>
+              <input id="regName" type="text" placeholder="e.g., Jordan Lee"/>
+            </div>
+            <div>
+              <label>Date of Birth</label>
+              <input id="regDob" type="date"/>
+            </div>
+          </div>
+          <label>Email</label>
+          <input id="regEmail" type="email" placeholder="you@example.com"/>
+          <label>Password</label>
+          <input id="regPass" type="password" placeholder="Choose a password"/>
+          <label>Phone</label>
+          <input id="regPhone" type="tel" placeholder="+61 ..."/>
+          <button id="registerBtn" class="btn primary wide">Create Account</button>
+          
+        </div>
+
+        <!-- Doctor -->
+        <div class="tab-content" id="doctor">
+          <label>Email</label>
+          <input id="doctorEmail" type="email" placeholder="e.g., doctor@example.com"/>
+          <label>Password</label>
+          <input id="doctorPass" type="password" placeholder="Enter password"/>
+          <button id="doctorLogin" class="btn primary wide">Login</button>
+          
+        </div>
+
+        <!-- Admin -->
+        <div class="tab-content" id="admin">
+          <label>Username</label>
+          <input id="adminUser" type="text" placeholder="e.g., admin@pakenham"/>
+          <label>Password</label>
+          <input id="adminPass" type="password" placeholder="Enter password"/>
+          <button id="adminLogin" class="btn primary wide">Login</button>
+          
+        </div>
+
+        <footer class="fine-print">
+          <small>© Pakenham Hospital · All rights reserved.</small>
+        </footer>
+      </div>
+
+      <!-- RIGHT: Slim SVG Illustration (no emojis) -->
+      <aside class="panel-right">
+        <svg width="0" height="0" class="hidden">
+          <defs>
+            <symbol id="ic-hospital" viewBox="0 0 24 24">
+              <rect x="3" y="6" width="18" height="14" rx="2" fill="#ffffff" stroke="#9ccfd3" stroke-width="1.5"/>
+              <rect x="10.5" y="8.5" width="3" height="7" fill="#0ea5a8"/>
+              <rect x="8.5" y="10.5" width="7" height="3" fill="#0ea5a8"/>
+            </symbol>
+            <symbol id="ic-stetho" viewBox="0 0 24 24">
+              <path d="M6 4v5a4 4 0 1 0 8 0V4" fill="none" stroke="#0ea5a8" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M14 9a5 5 0 0 0 5 5h1a2 2 0 1 1 0 4h-1" fill="none" stroke="#4f7a89" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="6" cy="4" r="1.6" fill="#4f7a89"/>
+              <circle cx="14" cy="4" r="1.6" fill="#4f7a89"/>
+            </symbol>
+            <symbol id="ic-pill" viewBox="0 0 24 24">
+              <rect x="3" y="9" width="18" height="6" rx="3" fill="#8fd3d6"/>
+              <rect x="3" y="9" width="9" height="6" rx="3" fill="#0ea5a8"/>
+            </symbol>
+            <symbol id="ic-clipboard" viewBox="0 0 24 24">
+              <rect x="5" y="6" width="14" height="14" rx="2" fill="#ffffff" stroke="#9ccfd3" stroke-width="1.5"/>
+              <rect x="8" y="3.5" width="8" height="4" rx="1.2" fill="#8fd3d6" stroke="#0ea5a8" stroke-width="1"/>
+              <rect x="8" y="10" width="8" height="1.6" fill="#9ccfd3"/>
+              <rect x="8" y="13" width="8" height="1.6" fill="#9ccfd3"/>
+              <rect x="8" y="16" width="6" height="1.6" fill="#9ccfd3"/>
+            </symbol>
+          </defs>
+        </svg>
+
+        <div class="circle">
+          <div class="circle-title">HOSPITAL</div>
+          <div class="circle-sub">Management Service</div>
+          <div class="ring">
+            <div class="badge pos-1"><svg viewBox="0 0 24 24"><use href="#ic-stetho"/></svg></div>
+            <div class="badge pos-3"><svg viewBox="0 0 24 24"><use href="#ic-clipboard"/></svg></div>
+            <div class="badge pos-5"><svg viewBox="0 0 24 24"><use href="#ic-hospital"/></svg></div>
+            <div class="badge pos-7"><svg viewBox="0 0 24 24"><use href="#ic-pill"/></svg></div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+      </aside>
+    </section>
+
+    <!-- APP -->
+    <section class="app hidden" id="appRoot">
+      <nav class="app-nav">
+        <div class="whoami" id="whoami"></div>
+        <div class="nav-actions">
+          <button class="btn ghost" id="bellBtn">Notifications <span id="bellCount" class="badge-dot hidden"></span></button>
+          <button class="btn ghost" id="logoutBtn">Log out</button>
+        </div>
+      </nav>
+
+      <div id="lowAttendanceBanner" class="banner hidden">Alert: Your attendance is below policy threshold. Please maintain regular check-ins.</div>
+
+      <!-- PATIENT VIEW -->
+      <section class="view" id="patientView">
+        <div class="grid-2">
+          <div class="card">
+            <h3>Book Appointment</h3>
+            <label>Service Type</label>
+            <select id="svcType">
+              <option value="medical">Medical</option>
+              <option value="counselling">Counselling</option>
+            </select>
+            <label>Practitioner</label>
+            <select id="bookDoctor"></select>
+            <label>Date</label>
+            <input id="bookDate" type="date"/>
+            <label>Time</label>
+            <input id="bookTime" type="time" step="1800" />
+            <div class="row between">
+              <button id="bookBtn" class="btn primary">Book</button>
+              <span class="muted" id="bookMsg"></span>
+            </div>
+          </div>
+          <div class="card">
+            <h3>My Appointments</h3>
+            <div id="myAppts"></div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Profile & Records</h3>
+            <details class="acc" open>
+              <summary class="acc-head">Personal Information</summary>
+              <div class="acc-body">
+                <div class="grid-2 g2-tight">
+                  <div>
+                    <label>Full Name</label><input id="pfName" type="text"/>
+                  </div>
+                  <div>
+                    <label>Date of Birth</label><input id="pfDob" type="date"/>
+                  </div>
+                </div>
+                <label>Phone</label><input id="pfPhone" type="tel"/>
+              </div>
+            </details>
+            <details class="acc">
+              <summary class="acc-head">Treatment History</summary>
+              <div class="acc-body">
+                <textarea id="pfTreat" rows="4" placeholder="e.g., 2024-06: Physiotherapy, 2025-02: Blood test"></textarea>
+              </div>
+            </details>
+            <details class="acc">
+              <summary class="acc-head">Disciplinary Notes</summary>
+              <div class="acc-body">
+                <textarea id="pfDisc" rows="3" placeholder="e.g., No-shows: 1 (2025-01-12)"></textarea>
+              </div>
+            </details>
+            <div class="row between mt8">
+              <button id="saveProfile" class="btn">Save Profile</button>
+              <span class="muted" id="pfMsg"></span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Helpdesk & Tickets</h3>
+            <label>Subject</label><input id="tkSubject" type="text"/>
+            <label>Message</label><textarea id="tkMessage" rows="3"></textarea>
+            <button id="tkCreate" class="btn">Create Ticket</button>
+            <div id="myTickets" class="mt8"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- DOCTOR VIEW -->
+      <section class="view" id="doctorView">
+        <div class="card">
+          <h3>Upcoming Schedule</h3>
+          <p class="muted" id="doctorMeta"></p>
+          <div id="doctorSched"></div>
+        </div>
+      </section>
+
+      <!-- ADMIN VIEW -->
+      <section class="view" id="adminView">
+        <div class="grid-2">
+          <div class="card">
+            <h3>Policy</h3>
+            <label>Cancellation window (hours)</label>
+            <input id="cancelWindow" type="number" min="0" value="24"/>
+            <label>Low attendance threshold (%)</label>
+            <input id="attendanceThresh" type="number" min="0" max="100" value="75"/>
+            <button id="savePolicy" class="btn primary">Save Policy</button>
+            <p class="muted" id="policyMsg"></p>
+          </div>
+          <div class="card">
+            <h3>Manage Practitioners</h3>
+            <div class="grid-2 g2-tight">
+              <div>
+                <label>ID</label><input id="newDocId" type="text" placeholder="e.g., D103"/>
+              </div>
+              <div>
+                <label>Name</label><input id="newDocName" type="text" placeholder="e.g., Dr. S. Rao"/>
+              </div>
+            </div>
+            <label>Type</label>
+            <select id="newDocType">
+              <option value="medical">Medical</option>
+              <option value="counselling">Counselling</option>
+            </select>
+            <button id="addDoctor" class="btn">Add</button>
+            <div id="doctorList" class="list mt8"></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Waitlist</h3>
+          <div id="waitListAdmin"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <!-- Chatbot -->
+  <button class="chatbot-button" id="botToggle" aria-label="Open Chatbot">
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M4 6h16v9H7l-3 3V6z" fill="#fff"/></svg>
+  </button>
+  <div class="chatbot-panel hidden" id="botPanel">
+    <div class="chatbot-header">
+      <strong>PH Help Bot</strong>
+      <button class="btn ghost sm" id="botClose">Close</button>
+    </div>
+    <div class="chatbot-body" id="botBody">
+      <div class="bot-msg">Hi! Ask me about booking, cancelling, waitlists, or policies. Type “create ticket: subject - message” to raise an issue.</div>
+    </div>
+    <div class="chatbot-input">
+      <input id="botInput" type="text" placeholder="Type your question…"/>
+      <button id="botSend" class="btn primary sm">Send</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>
+    // Tabs
+    const tabs=[...document.querySelectorAll('.tab')];
+    const panes=[...document.querySelectorAll('.tab-content')];
+    tabs.forEach(t=>t.addEventListener('click',()=>{
+      tabs.forEach(b=>b.classList.remove('active'));
+      panes.forEach(p=>p.classList.remove('active'));
+      t.classList.add('active');
+      document.getElementById(t.dataset.tab).classList.add('active');
+    }));
+  </script>
+</body>
+</html>

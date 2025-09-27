@@ -1,0 +1,16 @@
+# Node / tooling
+node_modules/
+coverage/
+dist/
+.env
+
+# OS & editor files
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+
+# Cypress (test artifacts)
+cypress/videos/
+cypress/screenshots/
